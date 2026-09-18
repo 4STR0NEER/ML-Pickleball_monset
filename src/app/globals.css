@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --color-navy-950: #0a1420;
+  --color-navy-900: #0e1e30;
+  --color-navy-800: #14304a;
+  --color-navy-700: #1c4362;
+  --color-cream-100: #fbf4e6;
+  --color-cream-200: #f4e9d4;
+  --color-cream-300: #e9dabd;
+  --color-green-600: #2f7d3c;
+  --color-green-500: #3f9a4b;
+  --color-green-400: #63b869;
+  --color-amber-500: #e8a13a;
+  --color-amber-400: #f2b95a;
+  --color-stamp-600: #a8412c;
+  --color-stamp-500: #c25139;
+  --color-ink: #14304a;
+
+  --font-display: var(--font-anton), Impact, sans-serif;
+  --font-body: var(--font-work-sans), "Segoe UI", sans-serif;
+
+  --selection-bg: var(--color-green-500);
+}
+
+@theme inline {
+  --color-navy-950: var(--color-navy-950);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-800: var(--color-navy-800);
+  --color-navy-700: var(--color-navy-700);
+  --color-cream-100: var(--color-cream-100);
+  --color-cream-200: var(--color-cream-200);
+  --color-cream-300: var(--color-cream-300);
+  --color-green-600: var(--color-green-600);
+  --color-green-500: var(--color-green-500);
+  --color-green-400: var(--color-green-400);
+  --color-amber-500: var(--color-amber-500);
+  --color-amber-400: var(--color-amber-400);
+  --color-stamp-600: var(--color-stamp-600);
+  --color-stamp-500: var(--color-stamp-500);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+* {
+  scrollbar-color: var(--color-navy-700) var(--color-cream-200);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream-100);
+  color: var(--color-navy-900);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--color-navy-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-green-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-scrim {
+  background-color: var(--color-navy-950);
+  background-image: radial-gradient(
+      120% 65% at 50% -8%,
+      rgba(242, 185, 90, 0.32),
+      transparent 58%
+    ),
+    linear-gradient(180deg, #14304a 0%, #0e1e30 45%, #0a1420 100%);
+}
+
+.halftone::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  background-image: radial-gradient(
+    var(--color-navy-900) 1px,
+    transparent 1.4px
+  );
+  background-size: 6px 6px;
+}

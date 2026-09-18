@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T00:00:00Z",
+  "title": "Design System: ML Lifestyle Park",
+  "extensions": {
+    "colorMeta": {
+      "green-500": { "role": "primary", "displayName": "Court Green", "canonical": "#3f9a4b" },
+      "amber-400": { "role": "secondary", "displayName": "Floodlight Amber", "canonical": "#f2b95a" },
+      "navy-900": { "role": "neutral", "displayName": "Bulletin Navy", "canonical": "#0e1e30" },
+      "navy-950": { "role": "neutral", "displayName": "Deep Navy", "canonical": "#0a1420" },
+      "cream-100": { "role": "neutral", "displayName": "Poster Cream", "canonical": "#fbf4e6" },
+      "cream-200": { "role": "neutral", "displayName": "Cream Card", "canonical": "#f4e9d4" },
+      "stamp-600": { "role": "tertiary", "displayName": "Stamp Red", "canonical": "#a8412c" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Anton Display", "purpose": "Headlines and large numerals only, always uppercase." },
+      "body": { "displayName": "Work Sans Body", "purpose": "Paragraph copy and interactive UI text." },
+      "label": { "displayName": "Work Sans Label", "purpose": "Short uppercase micro-labels, under ~20 characters." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "color-transition", "value": "transition-colors (150ms default)", "purpose": "Button and link hover state shifts; the system's only authored motion on this surface." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call-to-action, e.g. Check Availability.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#book\">Check Availability</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #3f9a4b; color: #0a1420; border-radius: 2px; padding: 14px 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; transition: background 0.15s; } .ds-btn-primary:hover { background: #63b869; } .ds-btn-primary:focus-visible { outline: 2px solid #63b869; outline-offset: 3px; }"
+    },
+    {
+      "name": "Availability Slot",
+      "kind": "custom",
+      "refersTo": "availability-slot",
+      "description": "Signature dual-coded hour tile: available (green + dot), booked (muted + X), selected (amber + dot).",
+      "html": "<div class=\"ds-slot ds-slot-available\"><svg viewBox=\"0 0 16 16\" width=\"10\" height=\"10\"><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"currentColor\"/></svg><span>8 PM</span></div>",
+      "css": ".ds-slot { display: flex; flex-direction: column; align-items: center; gap: 6px; border-radius: 2px; border: 1px solid; padding: 10px 8px; font-weight: 700; font-size: 0.75rem; font-variant-numeric: tabular-nums; } .ds-slot-available { color: #63b869; border-color: rgba(63,154,75,0.4); background: rgba(63,154,75,0.1); } .ds-slot-booked { color: rgba(251,244,230,0.4); border-color: rgba(251,244,230,0.1); background: rgba(251,244,230,0.04); } .ds-slot-selected { color: #f2b95a; border-color: #f2b95a; background: rgba(242,185,90,0.15); }"
+    },
+    {
+      "name": "Facility Panel",
+      "kind": "card",
+      "refersTo": "facility-panel",
+      "description": "Navy panel showing a sport's court/field count.",
+      "html": "<div class=\"ds-panel\"><span class=\"ds-panel-count\">3</span><h3>Basketball Courts</h3></div>",
+      "css": ".ds-panel { background: #0e1e30; color: #fbf4e6; border: 2px solid #0e1e30; border-radius: 2px; padding: 24px; } .ds-panel-count { font-family: 'Anton', Impact, sans-serif; font-size: 3rem; line-height: 1; } .ds-panel h3 { font-family: 'Anton', Impact, sans-serif; text-transform: uppercase; margin-top: 32px; border-top: 1px dashed rgba(251,244,230,0.25); padding-top: 16px; }"
+    },
+    {
+      "name": "Form Field",
+      "kind": "input",
+      "refersTo": "form-field",
+      "description": "Labeled text input used in the booking checkout, with an error state in Stamp Red.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Full Name</span><input class=\"ds-field-input\" type=\"text\" /></label>",
+      "css": ".ds-field-label { display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(14,30,48,0.7); } .ds-field-input { margin-top: 6px; width: 100%; border: 2px solid rgba(14,30,48,0.25); border-radius: 2px; background: #fbf4e6; padding: 10px 14px; font-size: 0.875rem; color: #0e1e30; } .ds-field-input:focus-visible { outline: none; border-color: #0e1e30; } .ds-field-input.ds-field-error { border-color: #a8412c; }"
+    },
+    {
+      "name": "Stepper Step",
+      "kind": "custom",
+      "refersTo": "stepper-step",
+      "description": "One step of the 3-step booking progress indicator: numbered, active, or done with a drawn checkmark.",
+      "html": "<div class=\"ds-step ds-step-done\"><span class=\"ds-step-dot\"><svg viewBox=\"0 0 16 16\" width=\"10\" height=\"10\"><path d=\"M3.5 8.5 6.5 11.5 12.5 4.5\" stroke=\"currentColor\" stroke-width=\"1.75\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><span>Build Booking</span></div>",
+      "css": ".ds-step { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #0e1e30; } .ds-step-dot { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 999px; background: rgba(14,30,48,0.1); color: rgba(14,30,48,0.4); } .ds-step-done .ds-step-dot { background: #3f9a4b; color: #0a1420; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Floodlit Bulletin",
+    "overview": "ML Lifestyle Park's site is built as a barangay court's bulletin wall after dark: bold hand-set signage type, ink-on-paper contrast, and the amber wash of floodlights against a night sky. It refuses both the clean-SaaS booking-form hero and the flat, decoration-free schedule table. Color is full-commitment: navy for authority, cream as the printed paper, green reserved for the single available/go signal from the facility's own logo, amber marking the floodlight night transition. Availability states never rely on color alone.",
+    "keyCharacteristics": [
+      "Heavy condensed display caps (Anton) for every headline",
+      "Navy/cream/green fixed brand palette, amber reserved for the night accent",
+      "Dot/X iconography doubles every availability color signal",
+      "Authored court-line geometry as the only decorative texture",
+      "Dashed hairlines as the recurring ticket-stub divider motif"
+    ],
+    "rules": [
+      { "name": "The One Green Rule", "body": "Court Green means available or primary action and nothing else.", "section": "colors" },
+      { "name": "The Dual-Coding Rule", "body": "Every availability state pairs its color with a distinct icon glyph.", "section": "colors" },
+      { "name": "The Short-Caps Rule", "body": "Uppercase tracked labels stay short; longer captions revert to sentence case.", "section": "typography" },
+      { "name": "The No-Shadow Rule", "body": "Nothing casts a soft blurred shadow; separation comes from borders and color blocks.", "section": "elevation" },
+      { "name": "The Stamp-Red Rule", "body": "Red exists only for errors and removals; it never doubles as a fourth availability state or a decorative accent.", "section": "colors" }
+    ],
+    "dos": [
+      "Do keep Court Green reserved for available and primary actions only.",
+      "Do pair every availability color with a dot/X glyph.",
+      "Do set all headlines in Anton, uppercase, at display scale.",
+      "Do use authored court-line SVG geometry as the only decorative texture.",
+      "Do keep corners near-square (2px) across buttons, cards, and slot tiles."
+    ],
+    "donts": [
+      "Don't introduce a color outside Navy / Cream / Green / Amber / Stamp Red.",
+      "Don't use Stamp Red for anything other than an error or a removal action.",
+      "Don't add drop shadows or soft glows to cards or buttons.",
+      "Don't use a pill-shaped or heavily rounded button.",
+      "Don't set long, sentence-length copy in uppercase.",
+      "Don't replace the labeled hero video placeholder with a stock photo."
+    ]
+  }
+}
